@@ -1,0 +1,78 @@
+body{
+    background-color:#F2C94C;
+    font-family: 'Montserrat', sans-serif;
+}
+#game {
+width: 210px;
+height: 210px;
+padding: 352px 0 0 45%;
+}
+.block{
+    width: 70px;
+    height: 70px;
+    float: left;
+    border:1px solid #BFA148;
+    box-sizing: border-box;
+    line-height: 50px;
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+#firstMove_align{
+    text-align: center;
+
+}
+#firstMove{
+    position: absolute;
+left: 47%;
+top: 608px;
+}
+.time{
+    position: absolute;
+width: 200px;
+height: 51px;
+left: 45%;
+top: 221px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 600;
+font-size: 42px;
+line-height: 51px;
+text-align: center;
+
+color: #000000; 
+}
+#win{
+    position: absolute;
+    left: 43%;
+    top: 100px;
+}
+#deadHeat{
+    position: absolute;
+    left: 38.6%;
+    top: 75px;
+}
+#button{
+    position: absolute;
+    left: 47%;
+    top: 145.8px;
+}
+#scoring{
+    position: absolute;;
+    left: 27%;
+    top: 150%;
+    display: inline-block;
+    font-family: Montserrat;
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 51px;
+text-align: center;
+}
+#winX{
+display: inline-block;
+}
+#winO{
+    display: inline-block;
+    }
