@@ -185,7 +185,7 @@ function FuncX() {
             let img = document.createElement("IMG");
             img.src = "../images/Group 2.png";
             imgWin.appendChild(img);
-            let scr = /*(window.content.localStorage[key])? parseInt(window.content.localStorage[key]): 0;*/
+            let scr = 0;/*(window.content.localStorage[key])? parseInt(window.content.localStorage[key]): 0;*/
             scr+=1;
             /*window.content.localStorage[key] = scr;*/
             document.getElementById("winX").innerHTML = scr;
