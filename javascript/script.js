@@ -172,7 +172,19 @@ function FuncX() {
 
 //TryAgane
         document.getElementById("button").onclick = function () {
-            location.reload();
+            /*location.reload();*/
+            document.getElementById('game').innerHTML='';
+            for(var i=0; i<9; i++){
+                document.getElementById('game').innerHTML+='<div class = "block"></div>';
+            }
+            let uncheck=document.getElementsByTagName('input');
+            for(var i=0;i<uncheck.length;i++)
+             {
+               if(uncheck[i].type=='radio')
+               {
+                 uncheck[i].checked=false;
+               }
+             }
         }
         
 
@@ -185,9 +197,8 @@ function FuncX() {
             let img = document.createElement("IMG");
             img.src = "../images/Group 2.png";
             imgWin.appendChild(img);
-            let scr = 0;/*(window.content.localStorage[key])? parseInt(window.content.localStorage[key]): 0;*/
+            let scr = 0;
             scr+=1;
-            /*window.content.localStorage[key] = scr;*/
             document.getElementById("winX").innerHTML = scr;
             
         }
@@ -201,7 +212,7 @@ function FuncX() {
             img = document.createElement("IMG");
             img.src = "../images/Group 3.png";
             imgWin.appendChild(img);
-
+            scr = 0;
             scr+=1;
             document.getElementById("winO").innerHTML = scr;
         }
@@ -213,198 +224,3 @@ function FuncX() {
     }
     return false;
   }
-
-
-    /*console.log(allblock)
-    if(allblock[0].innerHTML=='x' && allblock[1].innerHTML=='x' && allblock[2].innerHTML=='x')
-    {clearInterval(timer); 
-        document.getElementById('game').onclick = ""; 
-        allblock[3].style.color = '#BFA148';
-        allblock[4].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';
-    }
-    
-    if(allblock[3].innerHTML=='x' && allblock[4].innerHTML=='x' && allblock[5].innerHTML=='x')
-    {clearInterval(timer); 
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[1].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';
-    }
-    
-    if(allblock[6].innerHTML=='x' && allblock[7].innerHTML=='x' && allblock[8].innerHTML=='x')
-    {clearInterval(timer); 
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[1].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[4].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-    }
-    
-    if(allblock[0].innerHTML=='x' && allblock[3].innerHTML=='x' && allblock[6].innerHTML=='x') 
-    {clearInterval(timer); 
-        document.getElementById('game').onclick = ""; 
-        allblock[1].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[4].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';
-    }
-    
-    if(allblock[1].innerHTML=='x' && allblock[4].innerHTML=='x' && allblock[7].innerHTML=='x') 
-    {clearInterval(timer); 
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';}
-    
-    if(allblock[2].innerHTML=='x' && allblock[5].innerHTML=='x' && allblock[8].innerHTML=='x') 
-    {clearInterval(timer); 
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[1].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[4].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-    }
-    
-    if(allblock[0].innerHTML=='x' && allblock[4].innerHTML=='x' && allblock[8].innerHTML=='x') 
-    {clearInterval(timer); 
-        document.getElementById('game').onclick = ""; 
-        allblock[1].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-    }
-    
-    if(allblock[2].innerHTML=='x' && allblock[4].innerHTML=='x' && allblock[6].innerHTML=='x') 
-    {clearInterval(timer); 
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[1].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';}
-// проверка выйгрышных комбинаций Х
-
-
-// проверка выйгрышных комбинаций 0
-    if(allblock[0].innerHTML=='0' && allblock[1].innerHTML=='0' && allblock[2].innerHTML=='0') 
-    {clearInterval(timer);
-        document.getElementById('game').onclick = ""; 
-        allblock[3].style.color = '#BFA148';
-        allblock[4].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';}
-
-    if(allblock[3].innerHTML=='0' && allblock[4].innerHTML=='0' && allblock[5].innerHTML=='0')
-    {clearInterval(timer);
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[1].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';
-    } 
-
-    if(allblock[6].innerHTML=='0' && allblock[7].innerHTML=='0' && allblock[8].innerHTML=='0') 
-    {clearInterval(timer);
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[1].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[4].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-    }
-
-    if(allblock[0].innerHTML=='0' && allblock[3].innerHTML=='0' && allblock[6].innerHTML=='0') 
-    {clearInterval(timer);
-        document.getElementById('game').onclick = ""; 
-        allblock[1].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[4].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';
-    }
-
-    if(allblock[1].innerHTML=='0' && allblock[4].innerHTML=='0' && allblock[7].innerHTML=='0') 
-    {clearInterval(timer);
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';
-    }
-
-    if(allblock[2].innerHTML=='0' && allblock[5].innerHTML=='0' && allblock[8].innerHTML=='0') 
-    {clearInterval(timer);
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[1].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[4].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-    }
-
-    if(allblock[0].innerHTML=='0' && allblock[4].innerHTML=='0' && allblock[8].innerHTML=='0')
-    {clearInterval(timer);
-        document.getElementById('game').onclick = ""; 
-        allblock[1].style.color = '#BFA148';
-        allblock[2].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[6].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-    } 
-
-    if(allblock[2].innerHTML=='0' && allblock[4].innerHTML=='0' && allblock[6].innerHTML=='0') 
-    {clearInterval(timer);
-        document.getElementById('game').onclick = ""; 
-        allblock[0].style.color = '#BFA148';
-        allblock[1].style.color = '#BFA148';
-        allblock[3].style.color = '#BFA148';
-        allblock[5].style.color = '#BFA148';
-        allblock[7].style.color = '#BFA148';
-        allblock[8].style.color = '#BFA148';
-    }
-    
-
-        
-        
-    
-
-}*/
-
-/*function deadHeat() {
-    var allblock  = document.getElementsByClassName('block');
-    if(allblock[0].innerHTML!==""&& allblock[1].innerHTML!==""&& allblock[2].innerHTML!== ""&&
-        allblock[3].innerHTML!==""&& allblock[4].innerHTML!==""&& allblock[5].innerHTML!== ""&&
-        allblock[6].innerHTML!==""&& allblock[7].innerHTML!==""&& allblock[8].innerHTML!== "" ){
-            clearInterval(timer);
-            alert("ничья");
-        }
-}*/
