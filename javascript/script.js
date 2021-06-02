@@ -24,19 +24,21 @@ function FirstX() {
           
     }
 
-    checkWinner();    
+    checkWinner(); 
+    
+    //ничья
     if(hod==9 && checkWinner() == false){
         clearInterval(timer);
         document.getElementById('game').onclick = "";
         document.getElementById('game').style.color ="#BFA148";
         let imgDeadHeat = document.getElementById("deadHeat");
-            img = document.createElement("IMG");
-            img.src = "../game/images/12 1.png";
-            imgDeadHeat.appendChild(img);
+            let imgDH = document.createElement("IMG");
+            imgDH.src = "../game/images/12 1.png";
+            imgDeadHeat.appendChild(imgDH);
         tryAgane = document.getElementById("button");
-            img = document.createElement("IMG");
-            img.src = "../game/images/Group 5.png";
-            tryAgane.appendChild(img);
+            let imgTA = document.createElement("IMG");
+            imgTA.src = "../game/images/Group 5.png";
+            tryAgane.appendChild(imgTA);
     }
   
 }    
@@ -61,14 +63,20 @@ function First0() {
         hod++;  
     }
     checkWinner();
+
+    //ничья
     if(hod==9 && checkWinner() == false){
         clearInterval(timer);
         document.getElementById('game').onclick = "";
         document.getElementById('game').style.color ="#BFA148";
         let imgDeadHeat = document.getElementById("deadHeat");
-            img = document.createElement("IMG");
-            img.src = "../game/images/12 1.png";
-            imgDeadHeat.appendChild(img);
+            imgDH = document.createElement("IMG");
+            imgDH.src = "../game/images/12 1.png";
+            imgDeadHeat.appendChild(imgDH);
+        tryAgane = document.getElementById("button");
+            imgTA = document.createElement("IMG");
+            imgTA.src = "../game/images/Group 5.png";
+            tryAgane.appendChild(imgTA);
     }
     
 }
