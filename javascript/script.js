@@ -33,11 +33,11 @@ function FirstX() {
         document.getElementById('game').style.color ="#BFA148";
         let imgDeadHeat = document.getElementById("deadHeat");
             let imgDH = document.createElement("IMG");
-            imgDH.src = "../game/images/12 1.png";
+            imgDH.src = "../images/12 1.png";
             imgDeadHeat.appendChild(imgDH);
         tryAgane = document.getElementById("button");
             let imgTA = document.createElement("IMG");
-            imgTA.src = "../game/images/Group 5.png";
+            imgTA.src = "../images/Group 5.png";
             tryAgane.appendChild(imgTA);
     }
   
@@ -71,11 +71,11 @@ function First0() {
         document.getElementById('game').style.color ="#BFA148";
         let imgDeadHeat = document.getElementById("deadHeat");
             imgDH = document.createElement("IMG");
-            imgDH.src = "../game/images/12 1.png";
+            imgDH.src = "../images/12 1.png";
             imgDeadHeat.appendChild(imgDH);
         tryAgane = document.getElementById("button");
             imgTA = document.createElement("IMG");
-            imgTA.src = "../game/images/Group 5.png";
+            imgTA.src = "../images/Group 5.png";
             tryAgane.appendChild(imgTA);
     }
     
@@ -167,7 +167,7 @@ function FuncX() {
 
             let tryAgane = document.getElementById("button");
             img = document.createElement("IMG");
-            img.src = "../game/images/Group 5.png";
+            img.src = "../images/Group 5.png";
             tryAgane.appendChild(img);
 
 //TryAgane
@@ -183,11 +183,11 @@ function FuncX() {
             allblock[comb[2]].innerHTML =='x'){
             let imgWin = document.getElementById("win");
             let img = document.createElement("IMG");
-            img.src = "../game/images/Group 2.png";
+            img.src = "../images/Group 2.png";
             imgWin.appendChild(img);
-            let scr = (window.content.localStorage[key])? parseInt(window.content.localStorage[key]): 0;
+            /*let scr = (window.content.localStorage[key])? parseInt(window.content.localStorage[key]): 0;*/
             scr+=1;
-            window.content.localStorage[key] = scr;
+            /*window.content.localStorage[key] = scr;*/
             document.getElementById("winX").innerHTML = scr;
             
         }
@@ -199,7 +199,7 @@ function FuncX() {
             allblock[comb[2]].innerHTML =='0'){
             imgWin = document.getElementById("win");
             img = document.createElement("IMG");
-            img.src = "../game/images/Group 3.png";
+            img.src = "../images/Group 3.png";
             imgWin.appendChild(img);
 
             scr+=1;
