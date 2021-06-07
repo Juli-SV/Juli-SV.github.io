@@ -2,9 +2,22 @@
 for(var i=0; i<9; i++){
     document.getElementById('game').innerHTML+='<div class = "block"></div>';
 }
-var hod = 0;
-var time = 0;
-var timer;
+
+let hod = 0;
+let time = 0;
+let timer;
+
+//вызываем счетчик очков
+if(sessionStorage.getItem('keyX')){
+    counterX = JSON.parse(sessionStorage.getItem('keyX'));
+    document.getElementById("winX").innerHTML = counterX;
+
+}
+if(sessionStorage.getItem('key0')){
+    counter0 = JSON.parse(sessionStorage.getItem('key0'));
+    document.getElementById("winO").innerHTML = counter0;
+
+}
 
 //первыми ходят Х
 function FirstX() {
@@ -21,27 +34,36 @@ function FirstX() {
             event.target.innerHTML = '0';
         } 
         hod++; 
-          
     }
-
-    checkWinner(); 
+//проверка
+    checkWinner();
     
     //ничья
     if(hod==9 && checkWinner() == false){
         clearInterval(timer);
+
         document.getElementById('game').onclick = "";
         document.getElementById('game').style.color ="#BFA148";
+//deadHeat
         let imgDeadHeat = document.getElementById("deadHeat");
             let imgDH = document.createElement("IMG");
             imgDH.src = "../images/12 1.png";
             imgDeadHeat.appendChild(imgDH);
+            
+//tryAgane
         tryAgane = document.getElementById("button");
-            let imgTA = document.createElement("IMG");
+        let imgTA = document.createElement("IMG");
             imgTA.src = "../images/Group 5.png";
             tryAgane.appendChild(imgTA);
+//перезапуск
+        document.getElementById("button").onclick = function () {
+                location.reload();
+    
+            }
     }
+    
   
-}    
+}  
 }
 
 
@@ -67,16 +89,24 @@ function First0() {
     //ничья
     if(hod==9 && checkWinner() == false){
         clearInterval(timer);
+
         document.getElementById('game').onclick = "";
         document.getElementById('game').style.color ="#BFA148";
+//deadHeat
         let imgDeadHeat = document.getElementById("deadHeat");
             imgDH = document.createElement("IMG");
             imgDH.src = "../images/12 1.png";
             imgDeadHeat.appendChild(imgDH);
+//tryAgane
         tryAgane = document.getElementById("button");
             imgTA = document.createElement("IMG");
             imgTA.src = "../images/Group 5.png";
             tryAgane.appendChild(imgTA);
+//перезапуск
+        document.getElementById("button").onclick = function () {
+                location.reload();
+    
+            }
     }
     
 }
@@ -86,22 +116,21 @@ function First0() {
 
 //выбор первого хода
 function FuncX() {
-    var rad=document.getElementsByName('first');
-    for (var i=0;i<rad.length; i++) {
+    let rad=document.getElementsByName('first');
+    for (let i=0;i<rad.length; i++) {
       if (rad[i].checked) {
         FirstX();
       }
     }
   }
   function Func0() {
-    var rad=document.getElementsByName('first');
-    for (var i=0;i<rad.length; i++) {
+    let rad=document.getElementsByName('first');
+    for (let i=0;i<rad.length; i++) {
       if (rad[i].checked) {
         First0();
       }
     }
   }
-
 
 
 
@@ -122,7 +151,7 @@ function FuncX() {
 
 //проверка выйгрышных комбинаций/кнопка перезапуска
   function checkWinner(){
-     
+    console.log("XwinXwin");
     var allblock  = document.getElementsByClassName('block');
 
     let combs = [
@@ -166,40 +195,30 @@ function FuncX() {
             allblock[comb[2]].style.color = '#000';
 
             let tryAgane = document.getElementById("button");
-            img = document.createElement("IMG");
-            img.src = "../images/Group 5.png";
-            tryAgane.appendChild(img);
+            imgTA = document.createElement("IMG");
+            imgTA.src = "../images/Group 5.png";
+            tryAgane.appendChild(imgTA);
 
-//TryAgane
-        document.getElementById("button").onclick = function () {
-            /*location.reload();*/
-            document.getElementById('game').innerHTML='';
-            for(var i=0; i<9; i++){
-                document.getElementById('game').innerHTML+='<div class = "block"></div>';
-            }
-            let uncheck=document.getElementsByTagName('input');
-            for(var i=0;i<uncheck.length;i++)
-             {
-               if(uncheck[i].type=='radio')
-               {
-                 uncheck[i].checked=false;
-               }
-             }
-        }
+
         
 
 //если выиграли крестики
 
         if(allblock[comb[0]].innerHTML =='x' &&
             allblock[comb[1]].innerHTML == 'x'&& 
-            allblock[comb[2]].innerHTML =='x'){
+            allblock[comb[2]].innerHTML =='x')
+            {
             let imgWin = document.getElementById("win");
-            let img = document.createElement("IMG");
-            img.src = "../images/Group 2.png";
-            imgWin.appendChild(img);
-            let scr = 0;
-            scr+=1;
-            document.getElementById("winX").innerHTML = scr;
+            let imgWinX = document.createElement("IMG");
+            imgWinX.src = "../images/Group 2.png";
+            imgWin.appendChild(imgWinX);
+//счетчик очков    
+            let counterX = 0;
+            counterX = JSON.parse(sessionStorage.getItem('keyX'));
+            counterX ++;
+            document.getElementById("winX").innerHTML = counterX;
+            sessionStorage.setItem('keyX', JSON.stringify(counterX));
+            
             
         }
 
@@ -207,14 +226,25 @@ function FuncX() {
 //если выйграли нолики
         if(allblock[comb[0]].innerHTML =='0' &&
             allblock[comb[1]].innerHTML == '0'&& 
-            allblock[comb[2]].innerHTML =='0'){
+            allblock[comb[2]].innerHTML =='0')
+            {
             imgWin = document.getElementById("win");
-            img = document.createElement("IMG");
-            img.src = "../images/Group 3.png";
-            imgWin.appendChild(img);
-            scr = 0;
-            scr+=1;
-            document.getElementById("winO").innerHTML = scr;
+            let imgWin0 = document.createElement("IMG");
+            imgWin0.src = "../images/Group 3.png";
+            imgWin.appendChild(imgWin0);
+//счетчик очков
+            let counter0 = 0;
+            counter0 = JSON.parse(sessionStorage.getItem('key0'));
+            counter0 ++;
+            document.getElementById("winO").innerHTML = counter0;
+            sessionStorage.setItem('key0', JSON.stringify(counter0));
+            
+        }
+
+        //TryAgane
+        document.getElementById("button").onclick = function () {
+            location.reload();
+
         }
 
             return true;
