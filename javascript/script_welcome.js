@@ -1,1 +1,1 @@
-setTimeout('window.location="pages/welcom.html"',8000);
+setTimeout('window.location="pages/welcom.html"',3000);

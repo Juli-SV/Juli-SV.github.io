@@ -76,3 +76,10 @@ display: inline-block;
 #winO{
     display: inline-block;
     }
+
+#welcome{
+    width: 500px;
+height: 210px;
+padding: 352px 0 0 37%;
+font-size: 40px;
+}
