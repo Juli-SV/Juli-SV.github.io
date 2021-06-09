@@ -37,32 +37,8 @@ function FirstX() {
     }
 //проверка
     checkWinner();
-    
-    //ничья
-    if(hod==9 && checkWinner() == false){
-        clearInterval(timer);
+    check_DeadHeat();
 
-        document.getElementById('game').onclick = "";
-        document.getElementById('game').style.color ="#BFA148";
-//deadHeat
-        let imgDeadHeat = document.getElementById("deadHeat");
-            let imgDH = document.createElement("IMG");
-            imgDH.src = "../images/12 1.png";
-            imgDeadHeat.appendChild(imgDH);
-            
-//tryAgane
-        tryAgane = document.getElementById("button");
-        let imgTA = document.createElement("IMG");
-            imgTA.src = "../images/Group 5.png";
-            tryAgane.appendChild(imgTA);
-//перезапуск
-        document.getElementById("button").onclick = function () {
-                location.reload();
-    
-            }
-    }
-    
-  
 }  
 }
 
@@ -85,29 +61,7 @@ function First0() {
         hod++;  
     }
     checkWinner();
-
-    //ничья
-    if(hod==9 && checkWinner() == false){
-        clearInterval(timer);
-
-        document.getElementById('game').onclick = "";
-        document.getElementById('game').style.color ="#BFA148";
-//deadHeat
-        let imgDeadHeat = document.getElementById("deadHeat");
-            imgDH = document.createElement("IMG");
-            imgDH.src = "../images/12 1.png";
-            imgDeadHeat.appendChild(imgDH);
-//tryAgane
-        tryAgane = document.getElementById("button");
-            imgTA = document.createElement("IMG");
-            imgTA.src = "../images/Group 5.png";
-            tryAgane.appendChild(imgTA);
-//перезапуск
-        document.getElementById("button").onclick = function () {
-                location.reload();
-    
-            }
-    }
+    check_DeadHeat();
     
 }
 }
@@ -240,7 +194,6 @@ function FuncX() {
             sessionStorage.setItem('key0', JSON.stringify(counter0));
             
         }
-
         //TryAgane
         document.getElementById("button").onclick = function () {
             location.reload();
@@ -249,8 +202,36 @@ function FuncX() {
 
             return true;
         }
-    
+
     }
     }
     return false;
   }
+
+
+
+  function check_DeadHeat(){
+      //ничья
+      if(hod==9 && checkWinner() == false){
+        clearInterval(timer);
+
+        document.getElementById('game').onclick = "";
+        document.getElementById('game').style.color ="#BFA148";
+//deadHeat
+        let imgDeadHeat = document.getElementById("deadHeat");
+            let imgDH = document.createElement("IMG");
+            imgDH.src = "../images/12 1.png";
+            imgDeadHeat.appendChild(imgDH);
+            
+//tryAgane
+        tryAgane = document.getElementById("button");
+        let imgTA = document.createElement("IMG");
+            imgTA.src = "../images/Group 5.png";
+            tryAgane.appendChild(imgTA);
+//перезапуск
+        document.getElementById("button").onclick = function () {
+                location.reload();
+    
+            }
+    }
+}
