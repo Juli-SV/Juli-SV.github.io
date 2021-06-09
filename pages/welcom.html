@@ -4,11 +4,36 @@
         <meta charset="UTF-8">
         <link href="../css/style.css" rel="stylesheet">
         <script src="../javascript/script.js" defer></script>
-        <script src="../javascript/script_welcome.js" defer></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     </head>
     <body>
-<div id="welcome">welcome to tic-tac-toe</div>
+    <div id="win_style">
+        <div id = "win"></div>
+        <div id = "deadHeat"></div>
+        <div id = "button"></div>
+    </div>
+        <div class="time">
+            <span id="timermin">00</span> :
+            <span id="timersec">00</span>
+        </div>
+
+    <div id="game" >
+
+    </div>
+    <div id="firstMove">
+         <div id="firstMove_align">
+        <p>Ходят первыми:</p>
+        <input type="radio" name="first" id="firstHodX" onclick="FuncX();">X
+        <input type="radio" name="first" id="firstHodO" onclick="Func0();">0
+    </div>
+    <div id="scoring">
+        <div id="winX">0</div> :
+        <div id="winO">0</div>
+   </div>
+    </div>
+
+    
+    
     </body>
 </html>
