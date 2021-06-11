@@ -1,6 +1,16 @@
+
+@-webkit-keyframes fade-in {   0% { opacity: 0.1; }   100% { opacity: 1; }   }
+@-moz-keyframes    fade-in {   0% { opacity: 0.1; }   100% { opacity: 1; }   }
+@-o-keyframes      fade-in {   0% { opacity: 0.1; }   100% { opacity: 1; }   }
+@keyframes         fade-in {   0% { opacity: 0.1; }   100% { opacity: 1; }   }
+
 body{
     background-color:#F2C94C;
     font-family: 'Montserrat', sans-serif;
+    -webkit-animation: fade-in 3s linear; /* Safari 4+ */
+  -moz-animation: fade-in 3s linear; /* Fx 5+ */
+  -o-animation: fade-in 3s linear; /* Opera 12+ */
+  animation: fade-in 3s linear; /* IE 10+, Fx 29+ */
 }
 #game {
 width: 210px;
@@ -60,7 +70,7 @@ color: #000000;
 }
 #scoring{
     position: absolute;;
-    left: 27%;
+    left: 24%;
     top: 150%;
     display: inline-block;
     font-family: Montserrat;
@@ -82,4 +92,16 @@ display: inline-block;
 height: 210px;
 padding: 352px 0 0 37%;
 font-size: 40px;
+}
+
+#goodbye{
+    width: 500px;
+    height: 210px;
+    padding: 352px 0 0 45%;
+    font-size: 40px;
+}
+
+#gameover{
+    position: absolute;;
+    top: 250%;
 }

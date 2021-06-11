@@ -82,6 +82,7 @@ function FuncX() {
     for (let i=0;i<rad.length; i++) {
       if (rad[i].checked) {
         First0();
+        
       }
     }
   }
@@ -173,6 +174,7 @@ function FuncX() {
             document.getElementById("winX").innerHTML = counterX;
             sessionStorage.setItem('keyX', JSON.stringify(counterX));
             
+            completeGame();
             
         }
 
@@ -192,8 +194,11 @@ function FuncX() {
             counter0 ++;
             document.getElementById("winO").innerHTML = counter0;
             sessionStorage.setItem('key0', JSON.stringify(counter0));
+
+            completeGame();
             
         }
+        
         //TryAgane
         document.getElementById("button").onclick = function () {
             location.reload();
@@ -203,16 +208,10 @@ function FuncX() {
             return true;
         }
 
+
     }
     }
-    return false;
-  }
-
-
-
-  function check_DeadHeat(){
-      //ничья
-      if(hod==9 && checkWinner() == false){
+    if(hod === 9){
         clearInterval(timer);
 
         document.getElementById('game').onclick = "";
@@ -233,5 +232,90 @@ function FuncX() {
                 location.reload();
     
             }
+            completeGame();
+    }
+    return false;
+  }
+
+
+
+  /*function check_DeadHeat(){
+      //ничья
+
+      if(hod===9  && checkWinner() === false){
+        clearInterval(timer);
+
+        document.getElementById('game').onclick = "";
+        document.getElementById('game').style.color ="#BFA148";
+//deadHeat
+        let imgDeadHeat = document.getElementById("deadHeat");
+            let imgDH = document.createElement("IMG");
+            imgDH.src = "../images/12 1.png";
+            imgDeadHeat.appendChild(imgDH);
+            
+//tryAgane
+        tryAgane = document.getElementById("button");
+        let imgTA = document.createElement("IMG");
+            imgTA.src = "../images/Group 5.png";
+            tryAgane.appendChild(imgTA);
+//перезапуск
+        document.getElementById("button").onclick = function () {
+                location.reload();
+    
+            }
+            completeGame();
+    }
+}*/
+
+
+function completeGame(){
+    let  gameOver = document.getElementById("gameover");
+    let imgGO = document.createElement("IMG");
+    imgGO.src = "../images/Group 6.png";
+    gameOver.appendChild(imgGO);
+    document.getElementById('gameover').onclick = function (){
+        window.location="../pages/gameover.html"
     }
 }
+
+
+
+/*function checkDH(){
+    console.log("DH");
+     allblock  = document.getElementsByClassName('block');
+
+     combs = [
+		[0, 1, 2],
+		[3, 4, 5],
+		[6, 7, 8],
+		[0, 3, 6],
+		[1, 4, 7],
+		[2, 5, 8],
+		[0, 4, 8],
+        [2, 4, 6],
+
+    ];
+
+    for (let combDH of combs) {
+        if (hod ==9){
+        if ( 
+			allblock[combDH[0]].innerHTML != allblock[combDH[1]].innerHTML &&
+            allblock[combDH[1]].innerHTML != allblock[combDH[2]].innerHTML &&
+            allblock[combDH[2]].innerHTML != allblock[combDH[0]].innerHTML &&
+			allblock[combDH[0]].innerHTML != ''
+		){
+            clearInterval(timer);
+
+            document.getElementById('game').onclick = "";
+            document.getElementById('game').style.color ="#BFA148";
+    //deadHeat
+            let imgDeadHeat = document.getElementById("deadHeat");
+                let imgDH = document.createElement("IMG");
+                imgDH.src = "../images/12 1.png";
+                imgDeadHeat.appendChild(imgDH);
+        }
+
+    }
+}
+
+}*/
